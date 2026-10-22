@@ -2,35 +2,51 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
   <title>Brandon Gil — Développeur Web et Web Mobile</title>
-  <meta name="description" content="Portfolio de Brandon Gil, en recherche d'alternance (Développeur Web et Web Mobile) : Le Repère, forum gaming francophone avec messagerie, appels, live, tournois, applications Windows et Android.">
-  <meta name="theme-color" content="#0f1420">
+  <meta name="description" content="Portfolio de Brandon Gil, en recherche d'alternance : Le Repère, forum gaming francophone avec messagerie, appels, live, tournois, applications Windows et Android.">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0b0e1a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f7ff" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://brandon-gil.github.io/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="Brandon Gil — Développeur Web et Web Mobile">
-  <meta property="og:description" content="En recherche d'alternance. Le Repère : un forum gaming francophone complet, du serveur aux applications Windows et Android.">
-  <meta property="og:image" content="assets/photo.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:description" content="Portfolio de Brandon Gil, en recherche d'alternance : Le Repère, forum gaming francophone avec messagerie, appels, live, tournois, applications Windows et Android.">
+  <meta property="og:url" content="https://brandon-gil.github.io/">
+  <meta property="og:image" content="https://brandon-gil.github.io/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=202610222304">
+  <link rel="preload" href="assets/fonts/Inter-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="style.css?v=202610222319">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Brandon Gil","jobTitle":"Développeur Web et Web Mobile (en recherche d'alternance)","url":"https://brandon-gil.github.io/","address":{"@type":"PostalAddress","addressLocality":"Reims","addressCountry":"FR"},"sameAs":["https://github.com/brandon-gil","https://www.linkedin.com/in/brandon-gil-7746b1264"],"knowsAbout":["JavaScript","TypeScript","Node.js","React","Rust","Kotlin","SQLite","Playwright"]}
+  </script>
 </head>
 <body data-page="accueil">
+  <div class="progres" aria-hidden="true"></div>
   <a class="evitement" href="#contenu">Aller au contenu</a>
 
   <header class="barre">
-    <div class="conteneur barre-interieur">
+    <div class="barre-interieur">
       <a class="marque" href="index.html" id="marque">Brandon Gil</a>
       <nav aria-label="Pages" class="menu">
         <a href="index.html#projets" data-nav="projet">Projet</a>
         <a href="parcours.html" data-nav="parcours">Parcours</a>
         <a href="index.html#contact" id="menu-contact" hidden>Contact</a>
       </nav>
+      <button type="button" class="theme-bouton" id="theme-bouton" aria-label="Changer de thème"></button>
       <a class="cv-bouton" id="cv-bouton" hidden target="_blank" rel="noopener"></a>
     </div>
   </header>
 
   <main id="contenu">
     <section class="heros" id="haut" aria-labelledby="titre-nom">
+      <div class="aurore" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="conteneur heros-grille">
         <div class="heros-texte">
           <p class="surtitre" id="titre-metier"></p>
@@ -87,6 +103,6 @@
     <div class="conteneur"><p>© <span id="annee"></span> <span id="pied-nom">Brandon Gil</span> · Portfolio hébergé sur GitHub Pages</p></div>
   </footer>
 
-  <script src="app.js?v=202610222304" defer></script>
+  <script type="module" src="app.js?v=202610222319"></script>
 </body>
 </html>
