@@ -533,10 +533,18 @@ function parcours(p) {
       if (logo) {
         // Logo : pastille sombre pour un logo blanc sur transparent (2i Academy) ; `logoLibre` = insigne posé tel quel, sans pastille. Lien vers le site si fourni.
         const lien = lienSur(e.lienLogo || '');
-        const pastille = el(lien ? 'a' : 'span', e.logoLibre ? 'etape-logo etape-logo-libre' : 'etape-logo');
+        const grand = imageSure(e.logoHd);
+        // Insigne agrandissable : un bouton ouvre la version haute définition dans la visionneuse. Sinon : lien vers le site, ou simple image.
+        const pastille = el(lien ? 'a' : (grand ? 'button' : 'span'), e.logoLibre ? 'etape-logo etape-logo-libre' : 'etape-logo');
         if (lien) { pastille.href = lien; pastille.target = '_blank'; pastille.rel = 'noopener'; pastille.setAttribute('aria-label', `${e.logoAlt || 'Site de l\'école'} (nouvel onglet)`); }
+        else if (grand) {
+          pastille.type = 'button';
+          pastille.classList.add('agrandissable');
+          pastille.setAttribute('aria-label', `Agrandir : ${e.logoAlt || 'logo'}`);
+          pastille.addEventListener('click', () => visionneuse([{ src: grand, alt: e.logoAlt || '', legende: e.logoLegende || e.logoAlt || '' }], 0));
+        }
         const img = el('img');
-        Object.assign(img, { src: logo, alt: lien ? '' : (e.logoAlt || ''), width: e.logoLibre ? 288 : 384, height: e.logoLibre ? 512 : 384, loading: 'lazy', decoding: 'async' });
+        Object.assign(img, { src: logo, alt: (lien || grand) ? '' : (e.logoAlt || ''), width: e.logoLibre ? 288 : 384, height: e.logoLibre ? 512 : 384, loading: 'lazy', decoding: 'async' });
         pastille.append(img);
         contenu.append(pastille);
       }

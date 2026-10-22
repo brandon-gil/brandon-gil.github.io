@@ -271,7 +271,9 @@
       "texte": "Discipline, consignes, esprit d'équipe.",
       "logo": "assets/logos/insigne-reserve.webp",
       "logoAlt": "Insigne militaire",
-      "logoLibre": true
+      "logoLibre": true,
+      "logoHd": "assets/logos/insigne-reserve-hd.webp",
+      "logoLegende": "Insigne — La Marne, Verdun, Aisne"
     },
     {
       "periode": "Certification",
@@ -287,7 +289,9 @@
       "statut": "Toujours actif",
       "logo": "assets/logos/insigne-reserve.webp",
       "logoAlt": "Insigne militaire",
-      "logoLibre": true
+      "logoLibre": true,
+      "logoHd": "assets/logos/insigne-reserve-hd.webp",
+      "logoLegende": "Insigne — La Marne, Verdun, Aisne"
     },
     {
       "periode": "11/2025 – 02/2026",
