@@ -365,6 +365,14 @@
     & .etape-lieu { color: var(--texte-doux); }
     & p { margin-top: 4px; color: var(--texte-doux); }
   }
+  /* À propos : bloc « ce que la réserve militaire m'apprend » */
+  #apropos-reserve { margin-top: 30px; }
+  .reserve-carte { display: grid; gap: 16px; padding: clamp(22px, 4vw, 34px); }
+  .reserve-entete { display: flex; align-items: center; gap: 18px; }
+  .reserve-logo { width: auto; height: 84px; flex: none; filter: drop-shadow(0 8px 12px rgb(0 0 0 / .28)); }
+  .reserve-titre { margin: 0; font-size: clamp(1.25rem, 3vw, 1.7rem); }
+  .reserve-texte { margin: 0; color: var(--texte-doux); font-size: 1.05rem; }
+  .reserve-mots li { padding: 7px 16px; font-size: .95rem; }
   #apropos-texte { display: grid; gap: 16px; font-size: 1.12rem; color: var(--texte-doux); }
 
   .erreur-404 { padding-block: 18vh 12vh; }

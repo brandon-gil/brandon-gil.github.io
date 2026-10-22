@@ -348,5 +348,19 @@
     "logo": "assets/logos/skolae-noir.svg",
     "lien": "https://skolae.fr",
     "description": "Réseau d'enseignement supérieur"
+  },
+  "reserve": {
+    "titre": "Ce que la réserve militaire m'apprend au quotidien",
+    "texte": "Engagé dans la Réserve Militaire Opérationnelle depuis août 2019, j'y ai appris à tenir mes engagements et à travailler en équipe. Au quotidien, cela se traduit par de la discipline, de la rigueur et un vrai sens du collectif, que j'applique aujourd'hui dans mon travail de développeur.",
+    "mots": [
+      "Discipline",
+      "Rigueur",
+      "Esprit d'équipe",
+      "Sens du service",
+      "Ponctualité",
+      "Adaptabilité"
+    ],
+    "logo": "assets/logos/insigne-reserve.webp",
+    "logoAlt": "Insigne militaire"
   }
 }

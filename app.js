@@ -240,7 +240,7 @@ function effets() {
   }
 
   // Apparition au défilement : les éléments marqués reçoivent la classe (le CSS gère l'animation si elle est prise en charge).
-  document.querySelectorAll('.projet-carte, .carte, .etape, .point, .chiffre, .galerie-vignette, .defis li, .section h2, .intro-section').forEach((e) => e.classList.add('revele'));
+  document.querySelectorAll('.projet-carte, .carte, .etape, .point, .chiffre, .galerie-vignette, .defis li, .section h2, .intro-section, .reserve-carte').forEach((e) => e.classList.add('revele'));
 
   // Compteurs : « ≈ 170 000 », « 900+ »… comptent de 0 à la valeur quand ils deviennent visibles.
   if (!reduireMouvement && 'IntersectionObserver' in window) {
@@ -506,6 +506,29 @@ function visionneuse(images, depart) {
   dialogue.showModal();
 }
 
+/** Bloc « Ce que la réserve militaire m'apprend au quotidien » dans l'à-propos : insigne, quelques lignes et mots-clés. */
+function reserve(r) {
+  const zone = $('apropos-reserve');
+  if (!zone || !r?.titre) return;
+  const entete = el('div', 'reserve-entete');
+  const logo = imageSure(r.logo);
+  if (logo) {
+    const img = el('img', 'reserve-logo');
+    Object.assign(img, { src: logo, alt: r.logoAlt || '', width: 288, height: 512, loading: 'lazy', decoding: 'async' });
+    entete.append(img);
+  }
+  entete.append(el('h2', 'reserve-titre', r.titre));
+  const carte = el('div', 'reserve-carte verre');
+  carte.append(entete);
+  if (r.texte) carte.append(el('p', 'reserve-texte', r.texte));
+  if (r.mots?.length) {
+    const ul = el('ul', 'etiquettes reserve-mots');
+    ul.append(...r.mots.map((m) => el('li', '', m)));
+    carte.append(ul);
+  }
+  zone.replaceChildren(carte);
+}
+
 // ---- Page parcours : à propos, compétences, formation, expérience --------------------------------------------------------
 function parcours(p) {
   document.title = `Parcours — ${p.nom}`;
@@ -513,6 +536,7 @@ function parcours(p) {
     $('apropos-texte').append(...p.apropos.map((t) => el('p', '', t)));
     $('apropos').hidden = false;
   }
+  reserve(p.reserve);
   for (const g of p.competences) {
     const ul = el('ul', 'etiquettes');
     ul.append(...g.items.map((i) => el('li', '', i)));
