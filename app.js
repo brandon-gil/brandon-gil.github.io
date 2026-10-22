@@ -28,6 +28,7 @@ const ICONES = {
   suivant: { d: 'm9 18 6-6-6-6', trait: true },
   fermer: { d: 'M18 6 6 18M6 6l12 12', trait: true },
   retour: { d: 'm12 19-7-7 7-7M19 12H5', trait: true },
+  chantier: { d: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z', trait: true },
   epingle: { d: 'M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0ZM12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z', trait: true },
 };
 
@@ -342,6 +343,14 @@ function activerMots(mots, nom) {
   document.addEventListener('click', (ev) => { if (!bouton.contains(ev.target)) basculer(false); });
 }
 
+/** Mention « en cours de développement actif » : icône de clé à molette + texte, bien visible. */
+function noteDev(texte, classe = '') {
+  const note = el('p', `note-dev ${classe}`.trim());
+  note.setAttribute('role', 'note');
+  note.append(icone('chantier', 18), el('span', '', texte));
+  return note;
+}
+
 /** Groupes « Langages / Technologies / Outils » d'un projet. */
 function groupesStack(stack) {
   const bloc = el('div', 'stack');
@@ -376,6 +385,7 @@ function carteProjet(pr) {
   if (pr.periode) entete.append(el('span', 'badge', pr.periode));
   const corps = el('span', 'projet-corps');
   corps.append(entete, groupesStack(pr.stack));
+  if (pr.enDeveloppement) corps.append(noteDev(pr.enDeveloppement));
   carte.append(corps);
   return carte;
 }
@@ -402,6 +412,7 @@ function projet(p) {
   entete.append(titres);
   if (pr.periode) entete.append(el('span', 'badge', pr.periode));
   conteneur.append(entete, el('p', 'projet-resume', pr.resume));
+  if (pr.enDeveloppement) conteneur.append(noteDev(pr.enDeveloppement, 'note-dev-detail'));
 
   const liens = el('div', 'actions');
   const site = lienSur(pr.lien || '');
@@ -437,12 +448,15 @@ function projet(p) {
       ul.append(li);
     }
     conteneur.append(ul);
+    if (pr.noteChiffres) conteneur.append(el('p', 'note-chiffres', pr.noteChiffres));
   }
   if (pr.points?.length) {
     const grille = el('ul', 'points');
     for (const pt of pr.points) {
       const li = el('li', 'point verre');
-      li.append(el('strong', '', pt.titre), el('span', '', pt.texte));
+      li.append(el('strong', '', pt.titre));
+      if (pt.statut) { const b = el('span', 'badge-dev'); b.append(icone('chantier', 13), pt.statut); li.append(b); }
+      li.append(el('span', '', pt.texte));
       grille.append(li);
     }
     conteneur.append(el('h2', 'sous-titre', 'Ce que contient le projet'), grille);

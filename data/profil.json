@@ -16,7 +16,7 @@
   "motsCles": [
     {
       "mot": "Autodidacte",
-      "preuve": "Un projet complet, du serveur aux applications Windows et Android, appris par la pratique."
+      "preuve": "Un projet complet, du serveur aux applications Windows et Android (en cours de développement actif), appris par la pratique."
     },
     {
       "mot": "Rigoureux",
@@ -47,7 +47,7 @@
   ],
   "apropos": [
     "Je prépare le titre professionnel Développeur Web et Web Mobile à 2i Academy, en alternance sur un an. Avant cela, j'ai travaillé dans le transport, l'industrie et la vente : j'en garde la rigueur, le respect des procédures et le sens du service.",
-    "Je me suis formé par la pratique en construisant Le Repère, un forum gaming francophone en ligne, avec son site, ses applications Windows et Android, ses tournois et son anti-triche. J'apprends vite, je suis autodidacte et j'ai des bases à consolider en formation."
+    "Je me suis formé par la pratique en construisant Le Repère, un forum gaming francophone en ligne, avec son site, ses applications Windows et Android (encore en cours de développement actif), ses tournois et son anti-triche. J'apprends vite, je suis autodidacte et j'ai des bases à consolider en formation."
   ],
   "projets": [
     {
@@ -60,7 +60,7 @@
       "lien": "https://xn--lerepre-forum-0gb.fr",
       "libelleLien": "Voir le site en ligne",
       "depot": "",
-      "resume": "Projet personnel pour une communauté francophone (France, Belgique, Suisse, Québec) : un forum qui a grandi en plateforme complète, avec des applications dédiées sur Windows et Android.",
+      "resume": "Projet personnel pour une communauté francophone (France, Belgique, Suisse, Québec) : un forum qui a grandi en plateforme complète, avec des applications dédiées sur Windows et Android, encore en cours de développement actif.",
       "stack": {
         "Langages": [
           "JavaScript",
@@ -118,7 +118,7 @@
         },
         {
           "valeur": "5",
-          "libelle": "applications"
+          "libelle": "applications*"
         },
         {
           "valeur": "100+",
@@ -140,7 +140,8 @@
         },
         {
           "titre": "Live",
-          "texte": "Diffusion vidéo avec LiveKit, chat, suivi d'audience, et une application Windows de diffusion écrite en Rust."
+          "texte": "Diffusion vidéo avec LiveKit, chat, suivi d'audience, et une application Windows de diffusion écrite en Rust.",
+          "statut": "Windows : développement actif"
         },
         {
           "titre": "Repère Arena",
@@ -148,7 +149,8 @@
         },
         {
           "titre": "Anti-triche Arena Shield",
-          "texte": "Application Windows (Rust / Tauri) liée au compte du joueur, enregistrement de preuves sur demande uniquement, et analyse de la visée qui prépare un dossier pour une revue humaine : aucune sanction automatique."
+          "texte": "Application Windows (Rust / Tauri) liée au compte du joueur, enregistrement de preuves sur demande uniquement, et analyse de la visée qui prépare un dossier pour une revue humaine : aucune sanction automatique.",
+          "statut": "Windows : développement actif"
         },
         {
           "titre": "Qualité et sécurité",
@@ -159,7 +161,9 @@
         "Rendre une analyse de comportement utile sans jamais accuser à tort : score de risque, dossier de preuves signé (SHA-256) et décision toujours humaine.",
         "Garder un seul code pour le site et l'application de bureau, en faisant réutiliser l'interface React.",
         "Déployer sans interrompre les membres : sauvegarde, vérifications et retour arrière documentés."
-      ]
+      ],
+      "enDeveloppement": "Les applications Android et Windows sont encore en cours de développement actif.",
+      "noteChiffres": "* Dont les applications Android et Windows, encore en cours de développement actif."
     }
   ],
   "competences": [
