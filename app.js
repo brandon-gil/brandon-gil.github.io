@@ -279,10 +279,34 @@ function accueil(p) {
     $('lieu').hidden = false;
   }
 
+  puceEcole(p.ecole);
+
   const photo = $('photo');
   if (p.photo) { photo.src = p.photo; photo.alt = p.photoAlt || `Portrait de ${p.nom}`; } else { photo.closest('figure').hidden = true; }
   activerMots(p.motsCles, p.nom);
   $('liste-projets').append(...p.projets.map(carteProjet));
+}
+
+/** Puce « école » à côté de la localisation : logo de 2i Academy + précision (« en distanciel »), lien vers le site de l'école. */
+function puceEcole(e) {
+  const logo = imageSure(e?.logo);
+  if (!e?.nom || !logo) return;
+  const lien = lienSur(e.lien || '');
+  const puce = $('ecole-puce');
+  const pastille = el('span', 'ecole-logo');
+  const img = el('img');
+  Object.assign(img, { src: logo, alt: '', width: 384, height: 384, decoding: 'async' });
+  pastille.append(img);
+  const texte = el('span', 'ecole-texte');
+  texte.append(el('strong', '', e.nom), e.precision ? el('span', 'ecole-precision', ` · ${e.precision}`) : '');
+  puce.replaceChildren(pastille, texte);
+  if (lien) {
+    puce.href = lien; puce.target = '_blank'; puce.rel = 'noopener';
+    puce.setAttribute('aria-label', `${e.nom}${e.precision ? ', ' + e.precision : ''} (nouvel onglet)`);
+  } else {
+    puce.removeAttribute('href');
+  }
+  puce.hidden = false;
 }
 
 /** Trois mots qui décrivent la personne : la photo se retourne au clic (ou à la touche Entrée / Espace). */

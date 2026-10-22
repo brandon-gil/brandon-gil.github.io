@@ -254,13 +254,19 @@
   .accroche { max-width: 36em; margin-bottom: 22px; color: var(--texte-doux); font-size: clamp(1.08rem, 2vw, 1.3rem); }
   .dispo { display: inline-block; max-width: 100%; margin-bottom: 14px; padding: 8px 18px; border-radius: 18px; line-height: 1.45; font-weight: 600; font-size: .95rem; background: color-mix(in oklab, #22c55e 15%, transparent); border: 1px solid color-mix(in oklab, #22c55e 50%, transparent); }
   /* Puce de localisation : épingle dans une pastille en dégradé, onde « radar » qui pulse, verre dépoli */
-  .lieu { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px; padding: 5px 16px 5px 5px; border: 1px solid var(--bordure); border-radius: 999px; background: var(--surface); color: var(--texte); font-weight: 650; font-size: .95rem;
+  .infos-hero { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+  .lieu, .ecole-puce { display: inline-flex; align-items: center; gap: 10px; margin: 0; padding: 5px 16px 5px 5px; color: inherit; text-decoration: none; border: 1px solid var(--bordure); border-radius: 999px; background: var(--surface); color: var(--texte); font-weight: 650; font-size: .95rem;
     -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
   .lieu-icone { position: relative; isolation: isolate; display: grid; place-items: center; width: 30px; height: 30px; flex: none; border-radius: 50%; color: #fff;
     background: linear-gradient(135deg, var(--a1), var(--a2)); box-shadow: 0 6px 16px -4px color-mix(in oklab, var(--a2) 70%, transparent);
     &::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: inherit; animation: onde 2.6s ease-out infinite; }
     & svg { animation: flotte-epingle 3s ease-in-out infinite; }
   }
+  .ecole-puce:is(a) { transition: border-color .2s, background .2s, transform .2s; }
+  .ecole-puce:is(a):hover { border-color: var(--accent); background: var(--surface-forte); transform: translateY(-2px); }
+  .ecole-logo { display: block; width: 30px; height: 30px; flex: none; overflow: hidden; border-radius: 9px; background: #181c34; box-shadow: 0 6px 16px -6px rgb(40 60 255 / .6); }
+  .ecole-logo img { width: 100%; height: 100%; object-fit: cover; }
+  .ecole-precision { color: var(--texte-doux); font-weight: 600; }
   @keyframes onde { 0% { scale: 1; opacity: .55; } 80%, 100% { scale: 2.1; opacity: 0; } }
   @keyframes flotte-epingle { 0%, 100% { translate: 0 0; } 50% { translate: 0 -1.5px; } }
   .heros-texte > * { animation: entree .9s cubic-bezier(.2, .7, .2, 1) both; }
