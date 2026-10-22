@@ -28,6 +28,7 @@ const ICONES = {
   suivant: { d: 'm9 18 6-6-6-6', trait: true },
   fermer: { d: 'M18 6 6 18M6 6l12 12', trait: true },
   retour: { d: 'm12 19-7-7 7-7M19 12H5', trait: true },
+  epingle: { d: 'M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0ZM12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z', trait: true },
 };
 
 /** Icône SVG décorative (le texte du bouton porte le sens). */
@@ -247,7 +248,12 @@ function accueil(p) {
   $('titre-metier').textContent = p.titre;
   $('accroche').textContent = p.accroche;
   if (p.disponibilite) { $('dispo').textContent = p.disponibilite; $('dispo').hidden = false; }
-  if (p.localisation) { $('lieu').textContent = '📍 ' + p.localisation; $('lieu').hidden = false; }
+  if (p.localisation) {
+    const pastille = el('span', 'lieu-icone');
+    pastille.append(icone('epingle', 16));
+    $('lieu').replaceChildren(pastille, el('span', 'lieu-texte', p.localisation));
+    $('lieu').hidden = false;
+  }
 
   const photo = $('photo');
   if (p.photo) { photo.src = p.photo; photo.alt = p.photoAlt || `Portrait de ${p.nom}`; } else { photo.closest('figure').hidden = true; }
