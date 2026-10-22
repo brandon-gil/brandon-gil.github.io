@@ -46,6 +46,58 @@
     } catch (_) { return ''; }
   }
 
+  /** Menu « Email » : un lien mailto: seul ne marche que si une application de messagerie est configurée ; beaucoup de visiteurs utilisent Gmail ou Outlook dans le navigateur. */
+  function menuEmail(c) {
+    const adresse = c.valeur;
+    const sujet = 'Contact depuis votre portfolio';
+    const enc = encodeURIComponent;
+    const choix = [
+      { texte: 'Ouvrir dans Gmail', href: `https://mail.google.com/mail/?view=cm&fs=1&to=${enc(adresse)}&su=${enc(sujet)}`, externe: true },
+      { texte: 'Ouvrir dans Outlook', href: `https://outlook.live.com/mail/0/deeplink/compose?to=${enc(adresse)}&subject=${enc(sujet)}`, externe: true },
+      { texte: 'Application de messagerie', href: `mailto:${adresse}?subject=${enc(sujet)}`, externe: false },
+    ];
+    const racine = el('div', 'menu-email');
+    const bouton = el('button', 'bouton bouton-secondaire bouton-icone');
+    bouton.type = 'button';
+    bouton.setAttribute('aria-expanded', 'false');
+    bouton.setAttribute('aria-controls', 'menu-email-liste');
+    const logo = icone('email');
+    if (logo) bouton.appendChild(logo);
+    bouton.appendChild(el('span', '', `Email · ${adresse}`));
+    racine.appendChild(bouton);
+
+    const liste = el('ul', 'menu-email-liste');
+    liste.id = 'menu-email-liste';
+    liste.hidden = true;
+    choix.forEach((o) => {
+      const li = el('li');
+      const a = el('a', '', o.texte);
+      a.href = o.href;
+      if (o.externe) { a.target = '_blank'; a.rel = 'noopener'; }
+      a.addEventListener('click', fermer);
+      li.appendChild(a);
+      liste.appendChild(li);
+    });
+    const liCopie = el('li');
+    const copier = el('button', '', "Copier l'adresse");
+    copier.type = 'button';
+    copier.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(adresse); copier.textContent = 'Adresse copiée ✓'; }
+      catch (_) { copier.textContent = adresse; } // presse-papiers indisponible : on affiche l'adresse pour qu'elle soit sélectionnable
+      setTimeout(() => { copier.textContent = "Copier l'adresse"; }, 2500);
+    });
+    liCopie.appendChild(copier);
+    liste.appendChild(liCopie);
+    racine.appendChild(liste);
+
+    function ouvrir(v) { liste.hidden = !v; bouton.setAttribute('aria-expanded', String(v)); }
+    function fermer() { ouvrir(false); }
+    bouton.addEventListener('click', () => { const ouvert = liste.hidden; ouvrir(ouvert); if (ouvert) liste.querySelector('a').focus(); });
+    document.addEventListener('click', (ev) => { if (!racine.contains(ev.target)) fermer(); });
+    racine.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') { fermer(); bouton.focus(); } });
+    return racine;
+  }
+
   function afficher(p) {
     document.title = `${p.nom} — ${p.titre}`;
     $('marque').textContent = p.nom;
@@ -109,6 +161,8 @@
     if (contacts.length) {
       contacts.forEach((c) => {
         const li = el('li');
+        // Email : menu qui ouvre directement un nouveau message (Gmail, Outlook ou application par défaut) avec le destinataire déjà rempli.
+        if (/^email$/i.test(c.libelle) && c.valeur) { li.className = 'contact-email'; li.appendChild(menuEmail(c)); $('liste-contacts').appendChild(li); return; }
         const a = el('a', 'bouton bouton-secondaire bouton-icone');
         const logo = icone(c.libelle);
         if (logo) a.appendChild(logo);
