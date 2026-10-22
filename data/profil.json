@@ -44,13 +44,62 @@
   ],
   "projets": [
     {
+      "id": "le-repere",
       "nom": "Le Repère",
       "soustitre": "Forum gaming francophone : forum, messagerie, appels, diffusion en direct et tournois",
       "periode": "En ligne depuis septembre 2026",
+      "miniature": "assets/projet-repere-accueil.jpg",
+      "miniatureAlt": "Page d'accueil du forum Le Repère",
       "lien": "https://xn--lerepre-forum-0gb.fr",
       "libelleLien": "Voir le site en ligne",
       "depot": "",
       "resume": "Projet personnel pour une communauté francophone (France, Belgique, Suisse, Québec) : un forum qui a grandi en plateforme complète, avec des applications dédiées sur Windows et Android.",
+      "stack": {
+        "Langages": [
+          "JavaScript",
+          "TypeScript",
+          "Rust",
+          "Kotlin",
+          "SQL",
+          "HTML / CSS"
+        ],
+        "Technologies": [
+          "Node.js",
+          "Express 5",
+          "SQLite",
+          "WebSocket",
+          "React 19",
+          "Vite",
+          "Tauri",
+          "Electron",
+          "LiveKit",
+          "Jetpack Compose"
+        ],
+        "Outils": [
+          "Git",
+          "Playwright",
+          "VS Code",
+          "Debian / nginx",
+          "PowerShell"
+        ]
+      },
+      "images": [
+        {
+          "src": "assets/projet-repere-accueil.jpg",
+          "alt": "Page d'accueil du forum Le Repère",
+          "legende": "Accueil du forum"
+        },
+        {
+          "src": "assets/projet-repere-arena.jpg",
+          "alt": "Page Compétition de Le Repère, avec le logo Repère Arena",
+          "legende": "Repère Arena : tournois et mode classé"
+        },
+        {
+          "src": "assets/projet-repere-live.jpg",
+          "alt": "Page Live de Le Repère",
+          "legende": "Live : diffusion en direct"
+        }
+      ],
       "chiffres": [
         {
           "valeur": "≈ 170 000",
@@ -98,22 +147,6 @@
           "titre": "Qualité et sécurité",
           "texte": "Tests de bout en bout (Playwright) et unitaires, double authentification, déploiement scripté sur Debian / nginx / HTTPS avec sauvegarde de la base et contrôles après redémarrage."
         }
-      ],
-      "technos": [
-        "Node.js",
-        "Express 5",
-        "EJS",
-        "SQLite (FTS5)",
-        "WebSocket",
-        "React 19",
-        "TypeScript",
-        "Vite",
-        "Kotlin (Jetpack Compose)",
-        "Electron",
-        "Tauri / Rust",
-        "LiveKit",
-        "Playwright",
-        "Debian / nginx"
       ],
       "defis": [
         "Rendre une analyse de comportement utile sans jamais accuser à tort : score de risque, dossier de preuves signé (SHA-256) et décision toujours humaine.",

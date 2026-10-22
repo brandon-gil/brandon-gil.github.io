@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projet — Brandon Gil</title>
+  <meta name="description" content="Détail du projet Le Repère de Brandon Gil : fonctionnalités, défis relevés, langages, technologies et outils.">
+  <meta name="theme-color" content="#0f1420">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=202610222304">
+</head>
+<body data-page="projet">
+  <a class="evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="barre">
+    <div class="conteneur barre-interieur">
+      <a class="marque" href="index.html" id="marque">Brandon Gil</a>
+      <nav aria-label="Pages" class="menu">
+        <a href="index.html#projets" data-nav="projet">Projet</a>
+        <a href="parcours.html" data-nav="parcours">Parcours</a>
+        <a href="index.html#contact" id="menu-contact" hidden>Contact</a>
+      </nav>
+      <a class="cv-bouton" id="cv-bouton" hidden target="_blank" rel="noopener"></a>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="conteneur"><a class="retour" href="index.html#projets">← Retour à l'accueil</a></div>
+    <article class="section detail" id="detail-projet" aria-live="polite">
+      <div class="conteneur"><p class="aide">Chargement du projet…</p></div>
+    </article>
+
+    <section class="section section-alt" id="contact" aria-labelledby="titre-contact" hidden>
+      <div class="conteneur etroit centre">
+        <h2 id="titre-contact">Contact</h2>
+        <p class="aide">Une question sur ce projet ? Écrivez-moi.</p>
+        <ul class="contacts" id="liste-contacts"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur"><p>© <span id="annee"></span> <span id="pied-nom">Brandon Gil</span> · Portfolio hébergé sur GitHub Pages</p></div>
+  </footer>
+
+  <script src="app.js?v=202610222304" defer></script>
+</body>
+</html>

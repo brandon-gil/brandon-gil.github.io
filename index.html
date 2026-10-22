@@ -12,20 +12,20 @@
   <meta property="og:image" content="assets/photo.jpg">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=202610222254">
+  <link rel="stylesheet" href="style.css?v=202610222304">
 </head>
-<body>
+<body data-page="accueil">
   <a class="evitement" href="#contenu">Aller au contenu</a>
 
   <header class="barre">
     <div class="conteneur barre-interieur">
-      <a class="marque" href="#haut" id="marque">Brandon Gil</a>
-      <nav aria-label="Sections" class="menu">
-        <a href="#projets">Projet</a>
-        <a href="#competences">Compétences</a>
-        <a href="#formations" id="menu-parcours" hidden>Parcours</a>
-        <a href="#contact" id="menu-contact" hidden>Contact</a>
+      <a class="marque" href="index.html" id="marque">Brandon Gil</a>
+      <nav aria-label="Pages" class="menu">
+        <a href="index.html#projets" data-nav="projet">Projet</a>
+        <a href="parcours.html" data-nav="parcours">Parcours</a>
+        <a href="index.html#contact" id="menu-contact" hidden>Contact</a>
       </nav>
+      <a class="cv-bouton" id="cv-bouton" hidden target="_blank" rel="noopener"></a>
     </div>
   </header>
 
@@ -41,7 +41,6 @@
           <div class="actions">
             <a class="bouton" href="#projets">Voir mon projet</a>
             <a class="bouton bouton-secondaire" href="#contact" id="cta-contact" hidden>Me contacter</a>
-            <a class="bouton bouton-secondaire" id="cta-cv" hidden target="_blank" rel="noopener">Télécharger mon CV</a>
           </div>
         </div>
         <figure class="portrait">
@@ -57,38 +56,11 @@
       </div>
     </section>
 
-    <section class="section" id="apropos" aria-labelledby="titre-apropos" hidden>
-      <div class="conteneur etroit">
-        <h2 id="titre-apropos">À propos</h2>
-        <div id="apropos-texte"></div>
-      </div>
-    </section>
-
     <section class="section section-alt" id="projets" aria-labelledby="titre-projets">
       <div class="conteneur">
         <h2 id="titre-projets">Projet</h2>
-        <div id="liste-projets"></div>
-      </div>
-    </section>
-
-    <section class="section" id="competences" aria-labelledby="titre-competences">
-      <div class="conteneur">
-        <h2 id="titre-competences">Compétences</h2>
-        <div class="grille-competences" id="liste-competences"></div>
-      </div>
-    </section>
-
-    <section class="section section-alt" id="formations" aria-labelledby="titre-formations" hidden>
-      <div class="conteneur etroit">
-        <h2 id="titre-formations">Formation</h2>
-        <ol class="parcours" id="liste-formations"></ol>
-      </div>
-    </section>
-
-    <section class="section" id="parcours" aria-labelledby="titre-parcours" hidden>
-      <div class="conteneur etroit">
-        <h2 id="titre-parcours">Expérience professionnelle</h2>
-        <ol class="parcours" id="liste-parcours"></ol>
+        <p class="aide intro-section">Cliquez sur le projet pour en voir le détail.</p>
+        <div class="liste-projets" id="liste-projets"></div>
       </div>
     </section>
 
@@ -115,6 +87,6 @@
     <div class="conteneur"><p>© <span id="annee"></span> <span id="pied-nom">Brandon Gil</span> · Portfolio hébergé sur GitHub Pages</p></div>
   </footer>
 
-  <script src="app.js?v=202610222254" defer></script>
+  <script src="app.js?v=202610222304" defer></script>
 </body>
 </html>
