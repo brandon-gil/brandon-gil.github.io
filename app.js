@@ -526,16 +526,17 @@ function parcours(p) {
       const corps = el('div', 'etape-corps');
       corps.append(el('strong', '', e.titre || ''));
       if (e.lieu) corps.append(el('span', 'etape-lieu', ' · ' + e.lieu));
+      if (e.statut) corps.append(el('span', 'badge badge-actif', e.statut));
       if (e.texte) corps.append(el('p', '', e.texte));
       const contenu = el('div', 'etape-contenu');
       const logo = imageSure(e.logo);
       if (logo) {
-        // Logo de l'école : pastille sombre (le logo est blanc sur transparent), lien vers le site de l'école si fourni.
+        // Logo : pastille sombre pour un logo blanc sur transparent (2i Academy) ; `logoLibre` = insigne posé tel quel, sans pastille. Lien vers le site si fourni.
         const lien = lienSur(e.lienLogo || '');
-        const pastille = el(lien ? 'a' : 'span', 'etape-logo');
+        const pastille = el(lien ? 'a' : 'span', e.logoLibre ? 'etape-logo etape-logo-libre' : 'etape-logo');
         if (lien) { pastille.href = lien; pastille.target = '_blank'; pastille.rel = 'noopener'; pastille.setAttribute('aria-label', `${e.logoAlt || 'Site de l\'école'} (nouvel onglet)`); }
         const img = el('img');
-        Object.assign(img, { src: logo, alt: lien ? '' : (e.logoAlt || ''), width: 384, height: 384, loading: 'lazy', decoding: 'async' });
+        Object.assign(img, { src: logo, alt: lien ? '' : (e.logoAlt || ''), width: e.logoLibre ? 288 : 384, height: e.logoLibre ? 512 : 384, loading: 'lazy', decoding: 'async' });
         pastille.append(img);
         contenu.append(pastille);
       }
