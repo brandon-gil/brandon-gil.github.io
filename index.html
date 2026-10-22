@@ -12,7 +12,7 @@
   <meta property="og:image" content="assets/photo.jpg">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=202610222248">
+  <link rel="stylesheet" href="style.css?v=202610222254">
 </head>
 <body>
   <a class="evitement" href="#contenu">Aller au contenu</a>
@@ -45,7 +45,14 @@
           </div>
         </div>
         <figure class="portrait">
-          <img id="photo" width="508" height="680" alt="" fetchpriority="high">
+          <button type="button" class="portrait-bouton" id="portrait-bouton" aria-expanded="false">
+            <span class="retourne">
+              <img id="photo" width="508" height="680" alt="" fetchpriority="high">
+              <span class="mots-voile" id="mots-voile" aria-hidden="true"></span>
+            </span>
+            <span class="pastille" id="pastille" hidden>✨ 3 mots</span>
+          </button>
+          <figcaption class="portrait-aide" id="portrait-aide" hidden>Cliquez sur ma photo</figcaption>
         </figure>
       </div>
     </section>
@@ -108,6 +115,6 @@
     <div class="conteneur"><p>© <span id="annee"></span> <span id="pied-nom">Brandon Gil</span> · Portfolio hébergé sur GitHub Pages</p></div>
   </footer>
 
-  <script src="app.js?v=202610222248" defer></script>
+  <script src="app.js?v=202610222254" defer></script>
 </body>
 </html>

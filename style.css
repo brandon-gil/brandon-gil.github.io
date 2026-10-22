@@ -62,6 +62,30 @@ h1 { margin: 0 0 16px; font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; l
 .lieu { margin: 0 0 14px; color: var(--texte-doux); font-weight: 600; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 .portrait { margin: 0; justify-self: center; width: min(360px, 78%); }
+.portrait { position: relative; }
+.portrait-bouton { position: relative; display: block; width: 100%; padding: 0; border: 0; border-radius: 28px; background: none; cursor: pointer; font: inherit; color: inherit; }
+.portrait-bouton.sans-mots { cursor: default; }
+.portrait-bouton:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.portrait-aide { margin-top: 12px; text-align: center; color: var(--texte-doux); font-size: .92rem; }
+.pastille { position: absolute; right: 12px; bottom: 12px; padding: 7px 14px; border-radius: 999px; background: var(--accent); color: var(--accent-texte); font-weight: 700; font-size: .9rem; box-shadow: 0 6px 18px rgba(0, 0, 0, .3); animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+
+/* Les trois mots : la photo se retourne comme une carte, les mots sont au dos */
+.portrait { perspective: 1400px; }
+.retourne { position: relative; display: block; transform-style: preserve-3d; transition: transform .9s cubic-bezier(.45, .05, .2, 1); }
+.portrait-bouton:hover:not(.ouvert):not(.sans-mots) .retourne { transform: rotateY(-8deg); } /* léger penchant au survol : invite à cliquer */
+.portrait-bouton.ouvert .retourne { transform: rotateY(180deg); }
+.portrait img { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.mots-voile { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: 22px; border-radius: 28px; text-align: left; color: #fff;
+  background: linear-gradient(160deg, #0c111e, #263ec8); box-shadow: var(--ombre); border: 1px solid var(--bordure);
+  transform: rotateY(180deg); backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.mot { display: block; opacity: 0; transform: translateY(10px); transition: opacity .4s ease, transform .4s ease; }
+.portrait-bouton.ouvert .mot { opacity: 1; transform: none; transition-delay: calc(var(--i) * .14s + .45s); } /* les mots apparaissent une fois la carte retournée à moitié */
+.mot-titre { display: block; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.15; letter-spacing: -.01em; }
+.mot-preuve { display: block; margin-top: 4px; font-size: .88rem; line-height: 1.4; color: rgba(255, 255, 255, .86); }
+.mot:not(:last-child)::after { content: ""; display: block; width: 36px; height: 3px; margin-top: 14px; border-radius: 3px; background: rgba(255, 255, 255, .45); }
+@media (prefers-reduced-motion: reduce) { .pastille { animation: none; } .retourne { transition: none; } .portrait-bouton:hover .retourne { transform: none; } .portrait-bouton.ouvert .retourne { transform: rotateY(180deg); } .mot, .portrait-bouton.ouvert .mot { transition: none; transform: none; } }
+
 .portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 28%; border-radius: 28px; box-shadow: var(--ombre); border: 1px solid var(--bordure); }
 
 /* Boutons */

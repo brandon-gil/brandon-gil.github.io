@@ -98,6 +98,39 @@
     return racine;
   }
 
+  /** Trois mots qui décrivent la personne, révélés au clic (ou à la touche Entrée / Espace) sur la photo. */
+  function activerMots(mots, nom) {
+    const bouton = $('portrait-bouton');
+    const voile = $('mots-voile');
+    const valides = (mots || []).filter((m) => m && m.mot).slice(0, 3);
+    if (!valides.length) { bouton.disabled = true; bouton.classList.add('sans-mots'); return; }
+
+    valides.forEach((m, i) => {
+      const bloc = el('span', 'mot');
+      bloc.style.setProperty('--i', String(i));
+      bloc.appendChild(el('strong', 'mot-titre', m.mot));
+      if (m.preuve) bloc.appendChild(el('span', 'mot-preuve', m.preuve));
+      voile.appendChild(bloc);
+    });
+    $('pastille').hidden = false;
+    $('pastille').textContent = `✨ ${valides.length} mot${valides.length > 1 ? 's' : ''}`;
+    $('portrait-aide').hidden = false;
+
+    const texteFerme = `Découvrir ${valides.length} mots qui décrivent ${nom}`;
+    bouton.setAttribute('aria-label', texteFerme);
+    const basculer = (ouvert) => {
+      bouton.classList.toggle('ouvert', ouvert);
+      bouton.setAttribute('aria-expanded', String(ouvert));
+      voile.setAttribute('aria-hidden', String(!ouvert));
+      bouton.setAttribute('aria-label', ouvert ? `Mots qui décrivent ${nom} : ${valides.map((m) => m.mot).join(', ')}. Cliquer pour revenir à la photo` : texteFerme);
+      $('pastille').hidden = ouvert;
+      $('portrait-aide').textContent = ouvert ? 'Cliquez pour revenir à la photo' : 'Cliquez sur ma photo';
+    };
+    bouton.addEventListener('click', () => basculer(!bouton.classList.contains('ouvert')));
+    bouton.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') basculer(false); });
+    document.addEventListener('click', (ev) => { if (!bouton.contains(ev.target)) basculer(false); });
+  }
+
   function afficher(p) {
     document.title = `${p.nom} — ${p.titre}`;
     $('marque').textContent = p.nom;
@@ -110,6 +143,7 @@
 
     const photo = $('photo');
     if (p.photo) { photo.src = p.photo; photo.alt = p.photoAlt || `Portrait de ${p.nom}`; } else { photo.closest('figure').hidden = true; }
+    activerMots(p.motsCles, p.nom);
 
     const cv = lienSur(p.cv || '');
     if (cv) { $('cta-cv').href = cv; $('cta-cv').hidden = false; }
