@@ -105,6 +105,8 @@ function commun(p) {
     a.hidden = false;
   }
 
+  groupeEcole(p.groupe);
+
   // Contacts : seuls ceux qui sont renseignés apparaissent ; pas de contact = pas de section vide.
   const contacts = (p.contacts || [])
     .map((c) => ({ ...c, href: lienSur(c.lien || (/^email$/i.test(c.libelle) && c.valeur ? `mailto:${c.valeur}` : '')) }))
@@ -125,6 +127,28 @@ function commun(p) {
     $('menu-contact').hidden = false;
     if ($('cta-contact')) $('cta-contact').hidden = false;
   }
+}
+
+/** Bloc « groupe d'appartenance » (logo de Skolae) tout en bas de chaque page. Le logo est un SVG utilisé comme masque : il prend la couleur du thème. */
+function groupeEcole(g) {
+  const zone = $('groupe');
+  const logo = imageSure(g?.logo);
+  if (!zone || !g || !logo) return;
+  const lien = lienSur(g.lien || '');
+  const carte = el(lien ? 'a' : 'div', 'groupe-carte');
+  if (lien) {
+    carte.href = lien; carte.target = '_blank'; carte.rel = 'noopener';
+    carte.setAttribute('aria-label', `${g.nom}, ${g.description || 'groupe d\'appartenance'} (nouvel onglet)`);
+  }
+  const marque = el('span', 'groupe-logo');
+  marque.setAttribute('role', 'img');
+  marque.setAttribute('aria-label', g.nom);
+  marque.style.setProperty('--logo', `url("${new URL(logo, location.href).href}")`);
+  carte.append(el('span', 'groupe-intro', g.intro || ''), marque);
+  if (g.description) carte.append(el('span', 'groupe-description', g.description));
+  if (lien) carte.append(el('span', 'groupe-lien', `Découvrir ${g.nom} ↗`));
+  zone.querySelector('.conteneur').replaceChildren(carte);
+  zone.hidden = false;
 }
 
 /** Menu « Email » : élément natif [popover] (fermeture par Échap / clic extérieur, focus géré par le navigateur).
@@ -461,12 +485,25 @@ function parcours(p) {
   const etapes = (idListe, idSection, liste) => {
     if (!liste?.length) return;
     for (const e of liste) {
-      const corps = el('div');
+      const corps = el('div', 'etape-corps');
       corps.append(el('strong', '', e.titre || ''));
       if (e.lieu) corps.append(el('span', 'etape-lieu', ' · ' + e.lieu));
       if (e.texte) corps.append(el('p', '', e.texte));
+      const contenu = el('div', 'etape-contenu');
+      const logo = imageSure(e.logo);
+      if (logo) {
+        // Logo de l'école : pastille sombre (le logo est blanc sur transparent), lien vers le site de l'école si fourni.
+        const lien = lienSur(e.lienLogo || '');
+        const pastille = el(lien ? 'a' : 'span', 'etape-logo');
+        if (lien) { pastille.href = lien; pastille.target = '_blank'; pastille.rel = 'noopener'; pastille.setAttribute('aria-label', `${e.logoAlt || 'Site de l\'école'} (nouvel onglet)`); }
+        const img = el('img');
+        Object.assign(img, { src: logo, alt: lien ? '' : (e.logoAlt || ''), width: 384, height: 384, loading: 'lazy', decoding: 'async' });
+        pastille.append(img);
+        contenu.append(pastille);
+      }
+      contenu.append(corps);
       const li = el('li', 'etape');
-      li.append(el('span', 'etape-date', e.periode || ''), corps);
+      li.append(el('span', 'etape-date', e.periode || ''), contenu);
       $(idListe).append(li);
     }
     $(idSection).hidden = false;

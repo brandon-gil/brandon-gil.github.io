@@ -236,7 +236,10 @@
     {
       "periode": "En cours",
       "titre": "Titre Professionnel Développeur Web et Web Mobile",
-      "lieu": "2i Academy, alternance 1 an"
+      "lieu": "2i Academy, alternance 1 an",
+      "logo": "assets/logos/2i-academy.png",
+      "logoAlt": "Logo de 2i Academy",
+      "lienLogo": "https://2iacademy.com/"
     },
     {
       "periode": "2017 – 2020",
@@ -311,5 +314,12 @@
       "lieu": "Transport Aubin, Bréal-sous-Montfort",
       "texte": "Planification de trajet, CMR, chargement et contrôle."
     }
-  ]
+  ],
+  "groupe": {
+    "nom": "Skolae",
+    "intro": "Mon école, 2i Academy, fait partie du groupe",
+    "logo": "assets/logos/skolae-noir.svg",
+    "lien": "https://skolae.fr",
+    "description": "Réseau d'enseignement supérieur"
+  }
 }
