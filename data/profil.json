@@ -1,0 +1,78 @@
+{
+  "nom": "Brandon Gil",
+  "titre": "Développeur Web et Web Mobile",
+  "accroche": "Issu du terrain (transport, industrie, vente), je me reconvertis dans le développement : je conçois, code et mets en ligne un projet complet, et je cherche une équipe où progresser.",
+  "localisation": "Reims (51)",
+  "disponibilite": "En recherche d'alternance · 1 semaine en formation / 3 semaines en entreprise",
+  "photo": "assets/photo.jpg",
+  "photoAlt": "Portrait de Brandon Gil",
+  "cv": "assets/CV_Brandon_Gil.pdf",
+  "contacts": [
+    { "libelle": "Email", "valeur": "brandongil90@gmail.com", "lien": "" },
+    { "libelle": "LinkedIn", "valeur": "", "lien": "https://www.linkedin.com/in/brandon-gil-7746b1264" },
+    { "libelle": "GitHub", "valeur": "", "lien": "https://github.com/brandon-gil" }
+  ],
+  "apropos": [
+    "Je prépare le titre professionnel Développeur Web et Web Mobile à 2i Academy, en alternance sur un an. Avant cela, j'ai travaillé dans le transport, l'industrie et la vente : j'en garde la rigueur, le respect des procédures et le sens du service.",
+    "Je me suis formé par la pratique en construisant Le Repère, un forum gaming francophone en ligne, avec son site, ses applications Windows et Android, ses tournois et son anti-triche. J'apprends vite, je suis autodidacte et j'ai des bases à consolider en formation."
+  ],
+  "projets": [
+    {
+      "nom": "Le Repère",
+      "soustitre": "Forum gaming francophone : forum, messagerie, appels, diffusion en direct et tournois",
+      "periode": "En ligne depuis septembre 2026",
+      "lien": "https://xn--lerepre-forum-0gb.fr",
+      "libelleLien": "Voir le site en ligne",
+      "depot": "",
+      "resume": "Projet personnel pour une communauté francophone (France, Belgique, Suisse, Québec) : un forum qui a grandi en plateforme complète, avec des applications dédiées sur Windows et Android.",
+      "chiffres": [
+        { "valeur": "≈ 170 000", "libelle": "lignes de code" },
+        { "valeur": "7", "libelle": "langages" },
+        { "valeur": "5", "libelle": "applications" },
+        { "valeur": "100+", "libelle": "pages, 600+ routes" },
+        { "valeur": "900+", "libelle": "tests automatisés" }
+      ],
+      "points": [
+        { "titre": "Forum et communauté", "texte": "Recherche plein texte, profils, amis, notifications, mentions, réactions et modération automatique." },
+        { "titre": "Messagerie et appels", "texte": "Messages privés chiffrés de bout en bout, conversations de groupe, serveurs communautaires, appels audio et vidéo, en temps réel (WebSocket)." },
+        { "titre": "Live", "texte": "Diffusion vidéo avec LiveKit, chat, suivi d'audience, et une application Windows de diffusion écrite en Rust." },
+        { "titre": "Repère Arena", "texte": "Tournois avec tableaux, mode classé, phase de veto des cartes, litiges, sanctions et classement." },
+        { "titre": "Anti-triche Arena Shield", "texte": "Application Windows (Rust / Tauri) liée au compte du joueur, enregistrement de preuves sur demande uniquement, et analyse de la visée qui prépare un dossier pour une revue humaine : aucune sanction automatique." },
+        { "titre": "Qualité et sécurité", "texte": "Tests de bout en bout (Playwright) et unitaires, double authentification, déploiement scripté sur Debian / nginx / HTTPS avec sauvegarde de la base et contrôles après redémarrage." }
+      ],
+      "technos": ["Node.js", "Express 5", "EJS", "SQLite (FTS5)", "WebSocket", "React 19", "TypeScript", "Vite", "Kotlin (Jetpack Compose)", "Electron", "Tauri / Rust", "LiveKit", "Playwright", "Debian / nginx"],
+      "defis": [
+        "Rendre une analyse de comportement utile sans jamais accuser à tort : score de risque, dossier de preuves signé (SHA-256) et décision toujours humaine.",
+        "Garder un seul code pour le site et l'application de bureau, en faisant réutiliser l'interface React.",
+        "Déployer sans interrompre les membres : sauvegarde, vérifications et retour arrière documentés."
+      ]
+    }
+  ],
+  "competences": [
+    { "groupe": "Langages", "items": ["JavaScript", "TypeScript", "HTML5", "CSS3", "SQL", "Kotlin"] },
+    { "groupe": "Back-end", "items": ["Node.js", "Express", "SQLite", "API JSON", "WebSocket"] },
+    { "groupe": "Front-end", "items": ["React", "Vite", "Responsive", "PWA"] },
+    { "groupe": "Tests", "items": ["Playwright", "node:test", "JUnit"] },
+    { "groupe": "Outils", "items": ["Git", "VS Code", "PowerShell", "Bash", "Debian / nginx"] },
+    { "groupe": "Bureautique", "items": ["Word", "Excel", "PowerPoint", "SharePoint"] },
+    { "groupe": "Atouts", "items": ["Apprend vite", "Autodidacte", "Rigueur", "Esprit d'équipe", "Patient et à l'écoute", "Ponctuel"] },
+    { "groupe": "Langues", "items": ["Français : langue maternelle", "Anglais : B1"] }
+  ],
+  "formations": [
+    { "periode": "En cours", "titre": "Titre Professionnel Développeur Web et Web Mobile", "lieu": "2i Academy, alternance 1 an" },
+    { "periode": "2017 – 2020", "titre": "Bac Pro C.T.R.M.", "lieu": "Guer", "texte": "Transport routier, bases d'administration d'exploitation." },
+    { "periode": "2017 – 2019", "titre": "CAP C.R.M.", "lieu": "Guer", "texte": "Conducteur routier de marchandises." },
+    { "periode": "2019", "titre": "F.M.I.R.", "lieu": "Angers", "texte": "Discipline, consignes, esprit d'équipe." },
+    { "periode": "Certification", "titre": "CACES 1B", "texte": "Conduite d'engins de manutention." }
+  ],
+  "parcours": [
+    { "periode": "11/2025 – 02/2026", "titre": "Agent de production agroalimentaire", "lieu": "Atelier de l'Argoat, Plélan-le-Grand", "texte": "Préparation, hygiène, cadence journalière, respect strict des consignes." },
+    { "periode": "09/2025 – 10/2025", "titre": "Agent de production en scierie", "lieu": "Ets Marcadé / Interaction intérim", "texte": "Fabrication de palox bois, polyvalence sur postes, contrôle du travail réalisé." },
+    { "periode": "05/2025 – 08/2025", "titre": "Cariste quai", "lieu": "Mix Buffet, Guer", "texte": "Chargement, déchargement, contrôle qualité, inventaire, réapprovisionnement." },
+    { "periode": "02/2024 – 12/2024", "titre": "Ouvrier polyvalent", "lieu": "Événementiel France", "texte": "Accueil, sécurité avant départ, entretien, montage et démontage du manège." },
+    { "periode": "11/2023 – 01/2024", "titre": "Conseiller vendeur", "lieu": "SFR, Trignac", "texte": "Accueil client, conseil, vente d'offres, accompagnement sur les services." },
+    { "periode": "06/2023 – 09/2023", "titre": "Mécanicien monteur / assembleur", "lieu": "Arquus, Saint-Nazaire", "texte": "Installation, réglage, maintenance, respect des délais et standards qualité." },
+    { "periode": "04/2022 – 10/2023", "titre": "Gestionnaire caisse", "lieu": "Événementiel France", "texte": "Encaissements, relation client, commande du manège, surveillance sécurité." },
+    { "periode": "08/2020 – 04/2021", "titre": "Conducteur SPL", "lieu": "Transport Aubin, Bréal-sous-Montfort", "texte": "Planification de trajet, CMR, chargement et contrôle." }
+  ]
+}

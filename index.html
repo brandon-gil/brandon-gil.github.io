@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brandon Gil — Développeur Web et Web Mobile</title>
+  <meta name="description" content="Portfolio de Brandon Gil, en recherche d'alternance (Développeur Web et Web Mobile) : Le Repère, forum gaming francophone avec messagerie, appels, live, tournois, applications Windows et Android.">
+  <meta name="theme-color" content="#0f1420">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Brandon Gil — Développeur Web et Web Mobile">
+  <meta property="og:description" content="En recherche d'alternance. Le Repère : un forum gaming francophone complet, du serveur aux applications Windows et Android.">
+  <meta property="og:image" content="assets/photo.jpg">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=202610222226">
+</head>
+<body>
+  <a class="evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="barre">
+    <div class="conteneur barre-interieur">
+      <a class="marque" href="#haut" id="marque">Brandon Gil</a>
+      <nav aria-label="Sections" class="menu">
+        <a href="#projets">Projet</a>
+        <a href="#competences">Compétences</a>
+        <a href="#formations" id="menu-parcours" hidden>Parcours</a>
+        <a href="#contact" id="menu-contact" hidden>Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="heros" id="haut" aria-labelledby="titre-nom">
+      <div class="conteneur heros-grille">
+        <div class="heros-texte">
+          <p class="surtitre" id="titre-metier"></p>
+          <h1 id="titre-nom"></h1>
+          <p class="accroche" id="accroche"></p>
+          <p class="dispo" id="dispo" hidden></p>
+          <p class="lieu" id="lieu" hidden></p>
+          <div class="actions">
+            <a class="bouton" href="#projets">Voir mon projet</a>
+            <a class="bouton bouton-secondaire" href="#contact" id="cta-contact" hidden>Me contacter</a>
+            <a class="bouton bouton-secondaire" id="cta-cv" hidden target="_blank" rel="noopener">Télécharger mon CV</a>
+          </div>
+        </div>
+        <figure class="portrait">
+          <img id="photo" width="508" height="680" alt="" fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="apropos" aria-labelledby="titre-apropos" hidden>
+      <div class="conteneur etroit">
+        <h2 id="titre-apropos">À propos</h2>
+        <div id="apropos-texte"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="projets" aria-labelledby="titre-projets">
+      <div class="conteneur">
+        <h2 id="titre-projets">Projet</h2>
+        <div id="liste-projets"></div>
+      </div>
+    </section>
+
+    <section class="section" id="competences" aria-labelledby="titre-competences">
+      <div class="conteneur">
+        <h2 id="titre-competences">Compétences</h2>
+        <div class="grille-competences" id="liste-competences"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="formations" aria-labelledby="titre-formations" hidden>
+      <div class="conteneur etroit">
+        <h2 id="titre-formations">Formation</h2>
+        <ol class="parcours" id="liste-formations"></ol>
+      </div>
+    </section>
+
+    <section class="section" id="parcours" aria-labelledby="titre-parcours" hidden>
+      <div class="conteneur etroit">
+        <h2 id="titre-parcours">Expérience professionnelle</h2>
+        <ol class="parcours" id="liste-parcours"></ol>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="titre-contact" hidden>
+      <div class="conteneur etroit centre">
+        <h2 id="titre-contact">Contact</h2>
+        <p class="aide">Une opportunité, une question sur le projet ? Écrivez-moi.</p>
+        <ul class="contacts" id="liste-contacts"></ul>
+      </div>
+    </section>
+
+    <noscript>
+      <section class="section">
+        <div class="conteneur etroit">
+          <h2>Brandon Gil — Développeur Web et Web Mobile</h2>
+          <p>Ce portfolio affiche son contenu avec JavaScript. En bref : en recherche d'alternance, auteur de <strong>Le Repère</strong>, un forum gaming francophone (forum, messagerie en temps réel, diffusion en direct, tournois, applications Windows et Android).</p>
+          <p><a href="https://xn--lerepre-forum-0gb.fr">Voir Le Repère en ligne</a></p>
+        </div>
+      </section>
+    </noscript>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur"><p>© <span id="annee"></span> <span id="pied-nom">Brandon Gil</span> · Portfolio hébergé sur GitHub Pages</p></div>
+  </footer>
+
+  <script src="app.js?v=202610222226" defer></script>
+</body>
+</html>
