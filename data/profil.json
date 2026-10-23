@@ -2,7 +2,7 @@
   "nom": "Brandon Gil",
   "titre": "Développeur Web et Web Mobile",
   "accroche": "Issu du terrain (transport, industrie, vente), je me reconvertis dans le développement : je conçois, code et mets en ligne un projet complet, et je cherche une équipe où progresser.",
-  "localisation": "Reims (51), Grand-Est, France",
+  "localisation": "Reims (51), Grand Est, France",
   "ecole": {
     "nom": "2i Academy",
     "precision": "en distanciel",
@@ -98,12 +98,12 @@
         },
         {
           "src": "assets/projet-repere-arena.jpg",
-          "alt": "Page Compétition de Le Repère, avec le logo Repère Arena",
+          "alt": "Page Compétition du Repère, avec le logo Repère Arena",
           "legende": "Repère Arena : tournois et mode classé"
         },
         {
           "src": "assets/projet-repere-live.jpg",
-          "alt": "Page Live de Le Repère",
+          "alt": "Page Live du Repère",
           "legende": "Live : diffusion en direct"
         }
       ],
@@ -159,7 +159,7 @@
       ],
       "defis": [
         "Rendre une analyse de comportement utile sans jamais accuser à tort : score de risque, dossier de preuves signé (SHA-256) et décision toujours humaine.",
-        "Garder un seul code pour le site et l'application de bureau, en faisant réutiliser l'interface React.",
+        "Garder un seul code pour le site et l'application de bureau, en réutilisant l'interface React.",
         "Déployer sans interrompre les membres : sauvegarde, vérifications et retour arrière documentés."
       ],
       "enDeveloppement": "Les applications Android et Windows sont encore en cours de développement actif.",
