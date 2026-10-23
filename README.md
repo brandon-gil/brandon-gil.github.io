@@ -89,7 +89,7 @@ Page d'erreur aux couleurs du site, avec un retour à l'accueil.
 
 ### Compatibilité
 
-Navigateurs récents (Chrome, Edge, Safari, Firefox). Les fonctions les plus récentes ont un **repli** : sans elles, le contenu reste entièrement lisible et utilisable, seules certaines animations ou positions changent.
+Pensé pour les navigateurs récents ; vérifié sur Chromium (Chrome, Edge). Les fonctions les plus récentes sont **prévues avec un repli** : sans elles, le contenu doit rester lisible et utilisable, seules certaines animations ou positions changent.
 
 ---
 
